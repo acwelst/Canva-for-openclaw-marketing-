@@ -1,0 +1,133 @@
+{
+  "name": "canva-marketing",
+  "version": "1.0.0",
+  "displayName": "Canva MCP — Marketing Design",
+  "description": "Use the official Canva MCP server to create, export, resize, and organize marketing designs directly from any AI agent — no browser required.",
+  "mcpServer": {
+    "url": "https://mcp.canva.com/mcp",
+    "transport": "http",
+    "authType": "oauth"
+  },
+  "tags": [
+    "marketing",
+    "design",
+    "canva",
+    "social-media",
+    "branding",
+    "presentations",
+    "graphics",
+    "campaigns",
+    "email-marketing",
+    "visual-content"
+  ],
+  "triggerKeywords": [
+    "design", "graphic", "banner", "poster", "flyer", "logo",
+    "social media", "instagram", "linkedin", "twitter", "facebook", "tiktok",
+    "presentation", "pitch deck", "slides", "deck",
+    "marketing", "campaign", "branding", "brand assets",
+    "email header", "newsletter", "email campaign",
+    "thumbnail", "cover image", "og image",
+    "canva", "visual", "make an image", "create an image",
+    "infographic", "business card", "brochure"
+  ],
+  "intentPatterns": [
+    "I need a .*(post|graphic|banner|image|design|visual|slide|deck|flyer|poster|logo|thumbnail)",
+    "create .*(marketing|social|campaign|brand|design|presentation|visual)",
+    "make .*(a|an|some) .*(post|graphic|banner|image|design|visual|slide|deck|flyer|poster|logo)",
+    "design .*(a|an|the|our|my)",
+    "how do I (do|make|create|build|start) .*(marketing|branding|social|campaign)",
+    "I('m| am) launching",
+    "we have an (announcement|launch|campaign|event)",
+    "I need to (promote|announce|market|present)",
+    "turn .* into (a|an) .*(canva|design|presentation|graphic)",
+    "resize .*(for|to) .*(instagram|linkedin|twitter|facebook|social)",
+    "export .*(as|to) .*(pdf|png|jpg|pptx)"
+  ],
+  "capabilities": [
+    {
+      "id": "generate-design",
+      "name": "Generate Design from Prompt",
+      "description": "Create any marketing design from a natural language description",
+      "plan": "free"
+    },
+    {
+      "id": "search-designs",
+      "name": "Search Design Library",
+      "description": "Find existing Canva designs by keyword or type",
+      "plan": "free"
+    },
+    {
+      "id": "export-design",
+      "name": "Export Design",
+      "description": "Export designs as PDF, PNG, JPG, GIF, PPTX, or MP4",
+      "plan": "free"
+    },
+    {
+      "id": "resize-design",
+      "name": "Resize Across Formats",
+      "description": "Adapt one design to any platform dimension (Instagram, LinkedIn, etc.)",
+      "plan": "pro"
+    },
+    {
+      "id": "import-design-from-url",
+      "name": "Import External File",
+      "description": "Turn a PDF, PowerPoint, or Google Doc into an editable Canva design",
+      "plan": "free"
+    },
+    {
+      "id": "create-folder",
+      "name": "Organize Campaign Assets",
+      "description": "Create folders and organize all designs for a campaign",
+      "plan": "free"
+    },
+    {
+      "id": "add-design-comment",
+      "name": "Design Review Comments",
+      "description": "Add comments to designs for async review workflows",
+      "plan": "free"
+    }
+  ],
+  "workflows": [
+    {
+      "id": "social-post",
+      "name": "Social Media Post",
+      "trigger": "social post, instagram, linkedin, twitter, facebook graphic",
+      "tools": ["generate-design", "export-design"],
+      "planRequired": "free"
+    },
+    {
+      "id": "pitch-deck",
+      "name": "Marketing Presentation / Pitch Deck",
+      "trigger": "presentation, pitch deck, slides, deck",
+      "tools": ["generate-design", "get-design-pages", "export-design"],
+      "planRequired": "free"
+    },
+    {
+      "id": "multi-format",
+      "name": "Multi-Platform Campaign Pack",
+      "trigger": "all sizes, all formats, resize for platforms, campaign assets",
+      "tools": ["generate-design", "resize-design", "export-design"],
+      "planRequired": "pro"
+    },
+    {
+      "id": "brand-assets",
+      "name": "Brand Asset Creation",
+      "trigger": "logo, brand kit, business card, letterhead, brand guidelines",
+      "tools": ["generate-design", "export-design", "create-folder", "move-item-to-folder"],
+      "planRequired": "free"
+    },
+    {
+      "id": "campaign-organize",
+      "name": "Campaign Organization",
+      "trigger": "organize, campaign folder, keep assets together",
+      "tools": ["create-folder", "search-designs", "move-item-to-folder", "list-folder-items"],
+      "planRequired": "free"
+    }
+  ],
+  "instructionFiles": {
+    "claude": "CLAUDE.md",
+    "generic": "AGENT.md"
+  },
+  "repository": "https://github.com/acwelst/canva-for-openclaw-marketing-",
+  "canvaDocs": "https://www.canva.dev/docs/mcp/"
+}
